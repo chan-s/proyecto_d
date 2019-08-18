@@ -6,16 +6,16 @@
                     <div id="mainnav-profile" class="mainnav-profile">
                         <div class="profile-wrap text-center">
                             <div class="pad-btm">
-                                <img class="img-circle img-md" src="assets/img/profile-photos/1.png" alt="Profile Picture">
+                                <img class="img-circle img-md" [src]="userData.additionalUserInfo.profile.picture" alt="Profile Picture">
                             </div>
                             <a href="#profile-nav" class="box-block" data-toggle="collapse" aria-expanded="false">
                                 <span class="pull-right dropdown-toggle"><i class="dropdown-caret"></i></span>
-                                <p class="mnp-name">Nombre usuario</p>
-                                <span class="mnp-desc">correo.electronico@dominio.com</span>
+                                <p class="mnp-name">{{userData.additionalUserInfo.profile.name}}</p>
+                                <span class="mnp-desc">{{userData.additionalUserInfo.profile.email}}</span>
                             </a>
                         </div>
                         <div id="profile-nav" class="collapse list-group bg-trans">
-                            <a href="#" class="list-group-item"><i class="demo-pli-male icon-lg icon-fw"></i> Información de usuario</a>
+                            <a (click)="logOut()" class="list-group-item"><i class="demo-pli-male icon-lg icon-fw"></i> Información de usuario</a>
                             <a href="#" class="list-group-item"><i class="demo-pli-unlock icon-lg icon-fw"></i> Cerrar sesión</a>
                         </div>
                     </div>
