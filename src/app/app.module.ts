@@ -8,6 +8,10 @@ import { AppComponent } from './app.component';
 
 import { LoginComponent } from './view/pages/login/login.component';
 import { PagesModule } from './view/pages/pages.module';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireModule, FirebaseOptionsToken } from '@angular/fire';
+import { environment } from 'src/environments/environment';
+
 
 @NgModule({
   declarations: [
@@ -16,11 +20,15 @@ import { PagesModule } from './view/pages/pages.module';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     PagesModule,
-    HttpClientModule
+    AngularFireModule,
+    AngularFireAuthModule,
   ],
-  providers: [],
+  providers: [
+    { provide: FirebaseOptionsToken, useValue: environment.SETTINGS.FIREBASE }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
