@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -7,8 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  @Input() public titulo:string; 
+  @Output() public logot = new EventEmitter<string>();
 
+
+  public usuario:any;
+  constructor() { 
+    this.usuario = JSON.parse(localStorage.getItem('info'));
+  }
   ngOnInit() {
   }
 

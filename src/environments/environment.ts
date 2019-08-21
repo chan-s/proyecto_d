@@ -3,7 +3,19 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  rutaAPI: 'http://localhost/api.northwind/Northwind/',
+  SETTINGS: {
+    FIREBASE : {
+      apiKey: "AIzaSyAah151nqWle5T6PWsmolDef39sRVtNTbw",
+      authDomain: "dashboard-eedea.firebaseapp.com",
+      databaseURL: "https://dashboard-eedea.firebaseio.com",
+      projectId: "dashboard-eedea",
+      storageBucket: "",
+      messagingSenderId: "108456618838",
+      appId: "1:108456618838:web:2b327992e2d55f40"
+    }
+  }
 };
 
 /*
