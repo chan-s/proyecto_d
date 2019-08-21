@@ -6,7 +6,7 @@ import * as pluginAnnotations from 'chartjs-plugin-annotation';
 
 import { ApiService } from "src/app/data/services/api.service";
 import { Reporte, ReporteVentas, usuario, comparar, comparativoUSu } from "src/app/model/modelos";
-import { FormBuilder } from '@angular/forms';
+// import { FormBuilder } from '@angular/forms';
 
 @Component({  
   selector: "app-inicio",
@@ -66,7 +66,7 @@ export class InicioComponent implements OnInit {
   dropdownSettings: any = {};
   datoUsuario = new usuario();
 
-  constructor(private servicio: ApiService, private fb: FormBuilder) {
+  constructor(private servicio: ApiService) {
     this.getTopVentas();
     this.getHistory(this.model);
     this.usuariosLoad();

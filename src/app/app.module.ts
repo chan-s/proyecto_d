@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 
 import { LoginComponent } from './view/pages/login/login.component';
 import { PagesModule } from './view/pages/pages.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { PagesModule } from './view/pages/pages.module';
     HttpClientModule,
     AppRoutingModule,
     PagesModule,
+    FormsModule,
     AngularFireModule,
     AngularFireAuthModule,
   ],
