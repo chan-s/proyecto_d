@@ -13,7 +13,6 @@ import { AppComponent } from './app.component';
 
 import { LoginComponent } from './view/pages/login/login.component';
 import { PagesModule } from './view/pages/pages.module';
-import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,17 +21,15 @@ import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     PagesModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
     AngularFireModule,
     AngularFireAuthModule,
   ],
-  providers: [{
-    provide: FirebaseOptionsToken, useValue: environment.SETTINGS.FIREBASE
-  }],
+  providers: [
+    { provide: FirebaseOptionsToken, useValue: environment.SETTINGS.FIREBASE }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
