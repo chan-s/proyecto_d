@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  rutaAPI: 'http://localhost/api.northwind/Northwind/',
+  rutaAPI: 'http://40.71.103.111/API.Northwind/',
   SETTINGS: {
     FIREBASE : {
       apiKey: "AIzaSyAah151nqWle5T6PWsmolDef39sRVtNTbw",

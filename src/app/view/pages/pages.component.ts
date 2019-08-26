@@ -20,11 +20,9 @@ export class PagesComponent implements OnInit {
   async isLogOut(event) {
     //TO DO
      if (confirm('¿Está seguro de cerrar su sesión?')) {
-      this.authService.isLoginSuccess = await this.authService.logOut()
-     if(!this.authService.isLoginSuccess){
-       this.router.navigate(['/login'])
-     }
+      localStorage.clear();
+
+        this.router.navigate(['/login'])   
     }
   }
-
 }

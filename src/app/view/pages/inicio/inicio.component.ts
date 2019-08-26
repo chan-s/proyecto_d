@@ -71,6 +71,7 @@ export class InicioComponent implements OnInit {
     this.getHistory(this.model);
     this.usuariosLoad();
   }
+
   ngOnInit() {
     this.dropdownSettings = {
       singleSelection: false,
@@ -83,6 +84,7 @@ export class InicioComponent implements OnInit {
       enableCheckAll: true
     };
   }
+  
   onChangeCaracter(deviceValue) {
     this.dimension = deviceValue;
     this.reporte.dimension = this.dimension;
@@ -91,12 +93,14 @@ export class InicioComponent implements OnInit {
 
     this.usuariosLoad();
   }
+  
   public usuariosLoad(){
     this.selectedItems = [];
     this.servicio.getUsuarios(this.reporte).subscribe((result: any) => {
       this.usuarios = result
     });
   }
+  
   public getTopVentas() {
     this.servicio.getTopVentas(this.reporte).subscribe((result: any) => {
       result.forEach(element => {
@@ -106,6 +110,7 @@ export class InicioComponent implements OnInit {
       });
     });
   }
+  
   public getHistory(model: ReporteVentas) {
     this.servicio.postVentas(model).subscribe((result: any) => {
       let data: any = [];
@@ -118,6 +123,7 @@ export class InicioComponent implements OnInit {
       this.barChartData[0].data = data;
     });
   }
+
   public identificar(nombre: string) {
     this.model = new ReporteVentas();
     this.resetHis();
@@ -127,15 +133,18 @@ export class InicioComponent implements OnInit {
 
     this.getHistory(this.model);
   }
+
   public resetVar() {
     this.doughnutChartLabels = [];
     this.doughnutChartData = [];
     this.info = [];
   }
+
   public resetHis() {
     this.barChartLabels = [];
     this.barChartData[0].data = [];
   }
+
   public barChartOptions: ChartOptions = {
     responsive: true,
     scales: { xAxes: [{}], yAxes: [{}] },
@@ -148,35 +157,35 @@ export class InicioComponent implements OnInit {
   };
 
   onItemSelect(item: any) {    
-    // this.datoCompa.Nombres = this.selectedItems;
-    // this.datoCompa.dimension = this.dimension;
-    // this.lineChartLabels = [];
-    // this.lineChartData = [];
+    this.datoCompa.Nombres = this.selectedItems;
+    this.datoCompa.dimension = this.dimension;
+    this.lineChartLabels = [];
+    this.lineChartData = [];
 
-    // let prueba = new Array<Array<any>>();
+    let prueba = new Array<Array<any>>();
 
-    // let info = new Array<any>(this.selectedItems.length);
+    let info = new Array<any>(this.selectedItems.length);
 
-    // this.servicio.comparar(this.datoCompa).subscribe((result: any) => {
-    //   let infoBi: any = [];
-    //   result.forEach((element, index) => {
-    //     // console.log(index)
-    //     console.log(element.datos)
+    this.servicio.comparar(this.datoCompa).subscribe((result: any) => {
+      let infoBi: any = [];
+      result.forEach((element, index) => {
+        // console.log(index)
+        console.log(element.datos)
 
-    //     // console.log(element.datos[index])
+        // console.log(element.datos[index])
 
-    //     element.datos.forEach((r, i) => {
-    //       console.log(index, i)
+        element.datos.forEach((r, i) => {
+          console.log(index, i)
 
-    //       // prueba[index][i] = r;
+          // prueba[index][i] = r;
 
-    //     });
+        });
 
-    //     this.lineChartLabels.push(element.fecha)
-    //   });  
-    //   info.push(infoBi)
-    //   console.log(info)    
-    //   console.log(prueba)
-    // });
+        this.lineChartLabels.push(element.fecha)
+      });  
+      info.push(infoBi)
+      console.log(info)    
+      console.log(prueba)
+    });
   }
 }

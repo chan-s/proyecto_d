@@ -7,9 +7,8 @@ import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  @Input() public titulo:string; 
-  @Output() public logot = new EventEmitter<string>();
-
+  @Input() public titulo:string = "";
+  @Output() public salir = new EventEmitter<boolean>();
 
   public usuario:any;
   constructor() { 
@@ -17,6 +16,9 @@ export class HeaderComponent implements OnInit {
   }
   ngOnInit() {
   }
-  
 
+  sendMessageToParent(msn: boolean){
+    console.log(msn)
+    return this.salir.emit(msn);
+  }
 }

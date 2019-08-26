@@ -30,7 +30,7 @@
                                 <a><i class="demo-pli-male icon-lg icon-fw"></i> {{ usuario.name }}</a>
                             </li>
                             <li>
-                                <a href="pages-login.html"><i class="demo-pli-unlock icon-lg icon-fw"></i> {{titulo}}</a>
+                                <a (click)="sendMessageToParent(true)"><i class="demo-pli-unlock icon-lg icon-fw"></i> {{titulo}}</a>
                             </li>
                         </ul>
                     </div>
